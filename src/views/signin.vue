@@ -1,12 +1,15 @@
 <template lang="">
+    <pag/>
     <signin/>
 </template>
 <script>
 
 import signin from '../components/signin.vue'
+import pag from '../components/pag.vue'
 export default {
     components: {
-        signin
+        signin,
+        pag
     }
 }
 </script>

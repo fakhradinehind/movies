@@ -2,27 +2,27 @@
     <div>
         <div class="container">
  <h1>
-    <a href="#menu">Click me</a>
+    <a href="#menu" style="color:#fff;">Click me</a>
  </h1>
     
 <div class="popover" id="menu">
  <div class = 'content'>
   <a href="#" class="close"></a>
    <div class = 'nav'>
-    <ul class = 'nav_list'>
+    <ul class = 'nav_list' style="font-size:30px;">
       
       <div class = 'nav_list_item'>
 	  <li>
-        <router-link to="">Home</router-link></li>
+        <router-link to="/" style="color:#fff">Home</router-link></li>
       </div>
      <div class = 'nav_list_item'>
-		<li><router-link to="/signup">Sign up</router-link></li>
+		<li><router-link to="/signup" style="color:#fff">Sign up</router-link></li>
       </div>
     <div class = 'nav_list_item'>
-	  <li><router-link to="/signin">Sign In</router-link></li>
+	  <li><router-link to="/signin" style="color:#fff">Sign In</router-link></li>
       </div>
      <div class = 'nav_list_item'>
-		<li><router-link to="">Contact</router-link></li>
+		<li><router-link to="" style="color:#fff">Contact</router-link></li>
       </div>
       
 	</ul>

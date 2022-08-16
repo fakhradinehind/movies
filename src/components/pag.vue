@@ -1,16 +1,24 @@
 <template lang="">
-   <div class="my-3 pag ">
-    <button class="btn btn btn-primary " @click="previous">
-            Previous
-    </button>
-     <button class="btn btn btn-primary" @click="redirect">
-        Redirect
-    </button>
-     <button  class="btn btn btn-primary" @click="next">
-        Next
-    </button>
+    
+    <div >
+       
+        
+        <button  class="btn btn-primary btn-sm" @click="next">
+           Next
+       </button>
 
-</div>
+       &nbsp;&nbsp;
+         <button class="btn btn-primary btn-sm" @click="redirect">
+            Redirect
+        </button>
+        &nbsp
+         <button class="btn  btn-primary btn-sm" @click="previous">
+                Previous
+        </button>
+    </div>
+        
+    <br>
+
 </template>
 <script>
 export default {
@@ -28,7 +36,23 @@ export default {
 }
 </script>
 <style>
-.pag{
-   align-items: flex-end;
-}
+
+ .btn{
+   float:right;
+   background-color: #FFC18E;
+   border-radius: 7px;
+   border:none;
+   margin-left:15px;
+   width:100px;
+   height: 25px;
+   cursor: pointer;
+
+
+ }
+ .btn:hover{
+    background-color: #CA4E79;
+    color:#fff;
+
+ }
+ 
 </style>

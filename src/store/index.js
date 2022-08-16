@@ -19,14 +19,17 @@ export default createStore({
 
         try {
           const response = await axios.post('auth/login', credentials)
-          
-            dispatch('attemp',response.data.access_token)
+           
+              localStorage.setItem('user-info',JSON.stringify(response.data))
+              dispatch('attemp',response.data.access_token)
+           
         } catch (error) {
           console.log(error)
         }
       },  
       async attemp({commit},token){
         try{
+          
           const response =await axios.get('auth/user-profile',{
             headers:{'Authorization' :`Bearer ${token}`}
           })
@@ -36,9 +39,18 @@ export default createStore({
         }catch(error){
             console.log('failed2')
         }
-      }
+      },
+  
   },
   modules: {
     
+  },
+  getters:{
+    authenticated(state){
+      return state.token && state.user
+    },
+    user(state){
+      return state.user
+    }
   }
 })

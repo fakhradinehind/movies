@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    
+    <img class="logo" alt="Vue logo" src="..\assets\img.png" />
     <navbar/>
   </div>
 </template>
@@ -16,3 +16,11 @@ export default {
 }
 }
 </script>
+<style>
+ .logo{
+        width:100px;
+        height:52px;
+        
+        margin-left: 580px;
+    }
+</style>
