@@ -16,10 +16,10 @@
         <router-link to="">Home</router-link></li>
       </div>
      <div class = 'nav_list_item'>
-		<li><router-link to="">Sign up</router-link></li>
+		<li><router-link to="/signup">Sign up</router-link></li>
       </div>
     <div class = 'nav_list_item'>
-	  <li><router-link to="">Sign In</router-link></li>
+	  <li><router-link to="/signin">Sign In</router-link></li>
       </div>
      <div class = 'nav_list_item'>
 		<li><router-link to="">Contact</router-link></li>
