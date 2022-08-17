@@ -7,8 +7,14 @@
             <br>
              <div class="registre" >
                 <input type="text" v-model="name" placeholder="entrer votre nom">
+                <span class="error-feedback" v-if="v$.name.$error">
+                        {{v$.name.$errors[0].$message}}
+                    </span>
                 <br/>
                 <input type="text" v-model="email" placeholder="entrer votre email">
+                <span class="error-feedback" v-if="v$.email.$error">
+                        {{v$.email.$errors[0].$message}}
+                    </span>
                 <br/>
                 <input type="password" v-model="password" placeholder="entrer votre password">
                 <br/>
@@ -25,10 +31,13 @@
 </template>
 <script>
 import axios from 'axios'
+import useValidate from '@vuelidate/core'
+import {required,email,minLength} from '@vuelidate/validators'
+
 export default {
     data(){
         return{
-                
+                v$: useValidate(),
                name:'',
                email:'',
                password:'',
@@ -37,8 +46,16 @@ export default {
 
         }
     },
+     validations(){
+        return{
+            name:{required,minLength:minLength(10)},
+            email:{required,email},
+            password:{required,minLength:minLength(10)}
+        }
+    },
     methods:{
         async createaccount(){
+            this.v$.$validate()
             const response=await axios.post('/auth/register',{
                 name:this.name,
                 email:this.email,
