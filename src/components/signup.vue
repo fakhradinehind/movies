@@ -1,38 +1,40 @@
 <template lang="">
     <body>
-
-        <div>
-            
+        <div>   
             <h1 >Inscription</h1>
             <br>
              <div class="registre" >
-                <input type="text" v-model="name" placeholder="entrer votre nom">
-                <span class="error-feedback" v-if="v$.name.$error">
-                        {{v$.name.$errors[0].$message}}
-                    </span>
+                <div>
+                    <input type="text" v-model="name" placeholder="enter your name">
+                        <p class="error-feedback" v-if="v$.name.$error">
+                            {{v$.name.$errors[0].$message}}
+                        </p>
+                </div>
                 <br/>
-                <input type="text" v-model="email" placeholder="entrer votre email">
-                <span class="error-feedback" v-if="v$.email.$error">
+                <input type="text" v-model="email" placeholder="enter your email">
+                    <p class="error-feedback" v-if="v$.email.$error">
                         {{v$.email.$errors[0].$message}}
-                    </span>
+                    </p>
                 <br/>
-                <input type="password" v-model="password" placeholder="entrer votre password">
+                <input type="password" v-model="password" placeholder="enter your password">
+                    <p class="error-feedback" v-if="v$.password.$error">
+                        {{v$.password.$errors[0].$message}}
+                    </p>
                 <br/>
                 <input type="password" v-model="password_confirmation" placeholder="password">
+                    <p class="error-feedback" v-if="v$.password_confirmation.$error">
+                        {{v$.password_confirmation.$errors[0].$message}}
+                    </p>
                 <br/>
-                <button @click="createaccount" id="b1" >Creer un compte</button>
-                
-                
+                <button @click="createaccount" id="b1" >Create account</button> 
              </div>
-             
-             
         </div>
     </body>
 </template>
 <script>
 import axios from 'axios'
 import useValidate from '@vuelidate/core'
-import {required,email,minLength} from '@vuelidate/validators'
+import {required,email,minLength,sameAs} from '@vuelidate/validators'
 
 export default {
     data(){
@@ -50,7 +52,9 @@ export default {
         return{
             name:{required,minLength:minLength(10)},
             email:{required,email},
-            password:{required,minLength:minLength(10)}
+            password:{required,minLength:minLength(10)},
+            password_confirmation:{sameAsPassword: sameAs('password')}
+
         }
     },
     methods:{
@@ -109,7 +113,11 @@ h1{
         width:100px;
         height:52px
     }
-   
-  
+    .error-feedback{
+        color:red;
+        font-size: small;
+        width:fit-content;
+        margin:0 auto;
+    }
     
 </style>
