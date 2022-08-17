@@ -41,7 +41,7 @@ export default {
 <style lang="css">
 h1{
     text-align: center;
-    color:#7A4069;
+    color:#fff;
 }
     .registre input{
         width: 300px;

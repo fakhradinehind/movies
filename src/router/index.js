@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import filmsdetail from '../views/filmsdetail.vue'
 
 const routes = [
   {
@@ -30,7 +31,14 @@ const routes = [
     // this generates a separate chunk (signin.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "signin" */ '../views/signin.vue')
+  },
+  {
+    path: '/movie/:id',
+    name:'Movie Detail',
+    component:filmsdetail
+    
   }
+
 ]
 
 const router = createRouter({
